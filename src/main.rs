@@ -1,8 +1,8 @@
 fn main(){
-    let mut s = String::from("Hello");
-    let m1 = & s;
-    let m2 = & s;
-    let m3 = &mut s;
+    let s = dangle();
+}
 
-    println!("{} {} {}",m1,m2,m3);
+fn dangle() -> &String {
+    let str = String::from("hello");
+    &str
 }
