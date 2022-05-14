@@ -6,22 +6,16 @@ struct User{
     archive : bool,
 }
 
-fn build_user(name:String,email:String) ->User{
-    User{
-        // email : email,
-        // name : name,
-        email,
-        name,
-        sign_in_count : 1,
-        archive : false,
-    };
-}
-
-fn fun()-> User{
-    User{
+fn main(){
+    let user1 = User{
         email : String::from("ycc@123.com"),
         name : String::from("ycc"),
         sign_in_count : 1,
         archive : false,
+    };
+
+    let user2 = User{
+        email : String::from("233@gmail.com"),
+        ..user1
     };
 }
