@@ -1,17 +1,27 @@
-fn main(){
-    let  s = String::from("Hello World");
-    let str = first_world(&s[..]);
-    println!("{}",str);
+
+struct User{
+    name : String,
+    email : String,
+    sign_in_count : u64,
+    archive : bool,
 }
 
-fn first_world(s: &str) ->&str{
-    let bytes = s.as_bytes();
-    // iter会返回一个迭代器
-    // enumerate会将迭代器包装为一个元组，1 索引， 2 元素的引用
-    for (i,&item) in bytes.iter().enumerate() {
-        if item == b' ' {
-            return  &s[..i];
-        }
-    }
-    &s[..]
+fn build_user(name:String,email:String) ->User{
+    User{
+        // email : email,
+        // name : name,
+        email,
+        name,
+        sign_in_count : 1,
+        archive : false,
+    };
+}
+
+fn fun()-> User{
+    User{
+        email : String::from("ycc@123.com"),
+        name : String::from("ycc"),
+        sign_in_count : 1,
+        archive : false,
+    };
 }
