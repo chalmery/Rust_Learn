@@ -7,15 +7,13 @@ struct User{
 }
 
 fn main(){
-    let user1 = User{
-        email : String::from("ycc@123.com"),
-        name : String::from("ycc"),
-        sign_in_count : 1,
-        archive : false,
-    };
+    let trple = (1,"a",3);
+    let (a,b,c) = trple;
+    println!("{}",a);
 
-    let user2 = User{
-        email : String::from("233@gmail.com"),
-        ..user1
-    };
+    // 元组结构体
+    let white = Color(0,0,0);
+    let orange = Color(2,5,1);
 }
+
+struct Color(i32,i32,i32);
