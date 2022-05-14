@@ -1,19 +1,18 @@
-
-struct User{
-    name : String,
-    email : String,
-    sign_in_count : u64,
-    archive : bool,
+#[derive(Debug)]
+struct Rectangle {
+    length: u32,
+    width: u32,
 }
-
-fn main(){
-    let trple = (1,"a",3);
-    let (a,b,c) = trple;
-    println!("{}",a);
-
-    // 元组结构体
-    let white = Color(0,0,0);
-    let orange = Color(2,5,1);
+fn get_area(r : &Rectangle) -> u32 {
+    r.length * r.width
 }
+fn main() {
+    let r = Rectangle{
+        length:10,
+        width:10,
+    };
+    let area = get_area(&r);
+    println!("{}",area);
 
-struct Color(i32,i32,i32);
+    println!("{:#?}",r)
+}
