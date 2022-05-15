@@ -1,11 +1,18 @@
 use std::fs::File;
-use std::io::ErrorKind;
+use std::io;
+use std::io::{ Read};
 
 fn main() {
-    // unwrap处理，如果是正常的就返回文件对象，如果是错误的，抛出错误信息
-    // let f = File::open("hello.txt").unwrap();
+    match read_username() {
+        Ok(name) => println!("{}", name),
+        Err(e) => println!("{}", e),
+    }
+}
 
-    // exception，替换默认的错误信息
-    let f = File::open("hello.txt").expect("无法打开文件");
-
+fn read_username() -> Result<String, io::Error> {
+    let mut f = File::open("hello.txt")?;
+    let mut s = String::new();
+    // 这是函数的返回结果
+    f.read_to_string(&mut s)?;
+    Ok(s)
 }
