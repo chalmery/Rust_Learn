@@ -1,12 +1,11 @@
 fn main() {
-    // let v : Vec<i32> = Vec::new();
-    //指定初始值的方式创建,这样v不需要指定类型，因为可以推断出来
-    // let v = vec![1,2,3];
-    let mut v = Vec::new();
-    v.push(1);
-    v.push(2);
-    v.push(3);
-    v.push(4);
-
-    println!("{:?}",v);
+    let v = vec![1,2,3,4];
+    //获取值的引用,来访问值，这样不太好，可能越界
+    let third  = &v[2];
+    println!("{}", third);
+    // get方法返回一个Option
+    match v.get(5) {
+        None => println!("Null"),
+        Some(num) => println!("num is :{}",num),
+    }
 }
