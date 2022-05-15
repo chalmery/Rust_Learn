@@ -1,8 +1,15 @@
 fn main() {
-    let mut v = vec![1,2,3,4];
-    //获取值的引用,来访问值，这样不太好，可能越界
-    let third  = &v[2];
-    v.push(5);
-    println!("{}", third);
-    //因为在push之后，thired指向的堆地址可能是老的
+    let mut  v = vec![1,2,3,4];
+    // 遍历
+    for num in &v {
+        print!("{} ", num);
+    }
+    println!(" ");
+    // 遍历并修改，使用解引用的方式，表示：值的修改
+    for num in &mut v {
+        *num += 10;
+    }
+    for num in &v {
+        print!("{} ", num);
+    }
 }
