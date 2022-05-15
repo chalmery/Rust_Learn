@@ -1,10 +1,15 @@
-fn main() {
-    let x : i8 = 5;
-    let y : Option<i8> = Some(5);
+enum Coin {
+    Penny,
+    Nickel,
+    Dime,
+    Quarter,
+}
 
-    let z = y.expect("i8");
-
-    let sum = x + z;
-
-    println!("{}",sum);
+fn value_in_cents(coin: Coin) -> u8 {
+    match coin {
+        Coin::Penny => 1,
+        Coin::Nickel => 5,
+        Coin::Dime => 10,
+        Coin::Quarter => 25,
+    }
 }
