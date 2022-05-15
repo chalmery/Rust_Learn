@@ -1,13 +1,14 @@
-fn main() {
-    let mut s = String::from("hello");
-    s.push_str("aaa");
-    let s1 = String::from("hello");
-    let s2 = String::from("world");
-    let s3 = s1 + &s2;
-    println!("{}", s1);
-    println!("{}", s2);
-    println!("{}", s3);
+use std::collections::HashMap;
 
-    let string = format!("{}-{}", s1, s2);
-    println!("{}", string);
+fn main() {
+    let mut map = HashMap::new();
+    map.insert(String::from("Blue"),10);
+    map.insert(String::from("Yellow"),50);
+    let blue_str= String::from("Blue");
+    let res = map.get(&blue_str);
+
+    match res {
+        Some(s) => println!("this is {}",s),
+        None => println!("this is None"),
+    }
 }
