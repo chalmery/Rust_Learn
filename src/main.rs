@@ -2,15 +2,10 @@ use std::fs::File;
 use std::io::ErrorKind;
 
 fn main() {
-    // 闭包处理Result
-    let f = File::open("hello.txt").unwrap_or_else(|error|{
-        if error.kind() ==ErrorKind::NotFound {
-            File::create("hello.txt").unwrap_or_else(|error|{
-                panic!("Error creating file: {:?}",error);
-            })
-        }else {
-            panic!("Error notfind file: {:?}",error);
-        }
-    });
+    // unwrap处理，如果是正常的就返回文件对象，如果是错误的，抛出错误信息
+    // let f = File::open("hello.txt").unwrap();
+
+    // exception，替换默认的错误信息
+    let f = File::open("hello.txt").expect("无法打开文件");
 
 }
