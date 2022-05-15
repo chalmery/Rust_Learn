@@ -10,9 +10,7 @@ fn main() {
 }
 
 fn read_username() -> Result<String, io::Error> {
-    let mut f = File::open("hello.txt")?;
     let mut s = String::new();
-    // 这是函数的返回结果
-    f.read_to_string(&mut s)?;
+    File::open("hello.txt")?.read_to_string(&mut s)?;
     Ok(s)
 }
