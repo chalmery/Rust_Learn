@@ -1,9 +1,10 @@
-#[derive(Debug)]
-enum IP_ADDRESS{
-    V4(String,u32),
-    V6,
-}
-
 fn main() {
-    println!("{:?}",IP_ADDRESS::V6)
+    let x : i8 = 5;
+    let y : Option<i8> = Some(5);
+
+    let z = y.expect("i8");
+
+    let sum = x + z;
+
+    println!("{}",sum);
 }
