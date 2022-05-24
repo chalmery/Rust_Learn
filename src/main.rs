@@ -15,5 +15,11 @@ fn get_vec_largest(number_list :&[i32])-> i32{
             largest = num;
         }
     }
+    //上面的引用方式，或者下面的解引用方式
+    // for num in number_list {
+    //     if *num>largest {
+    //         largest = *num;
+    //     }
+    // }
     largest
 }
