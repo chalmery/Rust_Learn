@@ -1,28 +1,24 @@
 
-struct Point<T> {
-    x: T,
-    y: T,
+pub trait Summary {
+    fn summarize(&self) -> String;
 }
-//表示在类型T上实现方法
-impl<T> Point<T> {
-    //相当于get，获取x的引用
-    fn x(&self) -> &T {
-        &self.x
-    }
+
+pub struct News {
+    pub headline: String,
+    pub location: String,
 }
-//可以根据具体的类型实现方法,这样，只有i32的类型才你能调用这个
-impl Point<i32> {
-    fn x1(&self) -> &i32 {
-        &self.x
+
+impl Summary for News {
+    fn summarize(&self) -> String {
+        format!("{},{}", self.location, self.headline)
     }
 }
 
 fn main() {
-    let p = Point{
-        x : 100,
-        y : 100,
+    let n = News {
+        headline: String::from("he"),
+        location: String::from("lo"),
     };
 
-    println!("{}", p.x());
-
+    println!("{}", n.summarize());
 }
