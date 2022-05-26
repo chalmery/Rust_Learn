@@ -1,4 +1,5 @@
-use rust_learn::{News, Summary,Tweet};
+mod l_trait;
+use l_trait::{News, Summary,Tweet};
 
 fn main() {
     let n = News {
