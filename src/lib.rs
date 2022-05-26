@@ -1,5 +1,8 @@
 pub trait Summary {
-    fn summarize(&self) -> String;
+    //接口方法的默认实现
+    fn summarize(&self) -> String{
+        String::from("Read more....")
+    }
 }
 
 pub struct News {
@@ -8,8 +11,6 @@ pub struct News {
 }
 
 impl Summary for News {
-    fn summarize(&self) -> String {
-        format!("{},{}", self.location, self.headline)
-    }
+    
 }
 
