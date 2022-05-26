@@ -14,10 +14,25 @@ pub struct News {
     pub author: String,
 }
 
-//因为存在默认实现，这里不重写表示使用默认的逻辑
+
 impl Summary for News {
     fn summarize_author(&self) -> String {
         format!("@{}",self.author)
     }
 }
+
+
+pub struct Tweet{
+}
+
+impl Summary for Tweet {
+    fn summarize_author(&self) -> String {
+        String::from("Tweet....")
+    }
+}
+// 以trait为入参传递
+pub fn notify(item: impl Summary){
+    print!("news!...{}",item.summarize())
+}
+
 

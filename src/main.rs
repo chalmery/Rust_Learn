@@ -1,4 +1,4 @@
-use rust_learn::{News, Summary};
+use rust_learn::{News, Summary,Tweet};
 
 fn main() {
     let n = News {
@@ -8,4 +8,8 @@ fn main() {
     };
 
     println!("{}", n.summarize());
+
+    let t = Tweet {};
+
+    println!("{}", t.summarize());
 }
