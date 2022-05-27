@@ -65,3 +65,25 @@ where
 pub fn ret() -> impl Summary {
     Tweet {}
 }
+
+
+// 使用 tarit bound 实现有条件的实现方法
+struct Pair<T>{
+    x:T,
+    y:T,
+}
+//任何泛型都有此函数
+impl <T> Pair<T> {
+    fn new (x: T, y:T) -> Self{
+        Self{x,y}
+    }
+}
+
+//只有实现了这两个接口的泛型，才有此方法
+impl <T:Display+PartialOrd> Pair<T> {
+    fn cmp_display(&self){
+        if self.x>=self.y{
+            println!("x>y")
+        }
+    }
+}
